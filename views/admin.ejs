@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Telecommande Admin</title>
+  <% include ./partials/header %>
+  <!-- Permet de ne pas faire de zoom 
+    Lorsque l'admin est sur mobile et qu'il click sur un bouton plusieurs fois-->
+  <meta name='viewport' content='user-scalable=0' />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div>
+        <img src="./images/backgrounds/menus.svg" width="500px;" />
+      </div>
+    </div>
+    <div class="jumbotron mt-4">
+      <div class="row justify-content-center">
+        <h1>Télécommand Admin</h1>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-4 col-sm-6 text-center">
+          <input id="button-add-point-ketchup" type="button" class="base-button button-ketchup" value="+" />
+          <input id="button-remove-point-ketchup" type="button" class="base-button button-ketchup" value="-" />
+        </div>
+        <div class="col-lg-4 col-sm-4 text-center">
+          <input id="button-buzz-bad-response" type="button" class="base-button button-ketchup" value="X" />
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+          <input id="button-add-point-mayo" type="button" class="base-button button-mayo" value="+" />
+          <input id="button-remove-point-mayo" type="button" class="base-button button-mayo" value="-" />
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <input class="btn btn-success btn-lg mr-2" type="button" value="Next Transition >" id="button-next-transition" />
+      </div>
+      <div class="row justify-content-center mt-4">
+        <input class="btn btn-success btn-lg mr-2" type="button" value="Débloquer buzzer" id="button-unlock-buzz" />
+        <input class="btn btn-secondary btn-lg" type="button" value="Bloquer buzzer" id="button-lock-buzz" />
+      </div>
+      <div class="row justify-content-center mt-4">
+        <input class="btn btn-success btn-lg" type="button" value="Recharger partie" data-toggle="modal" data-target="#modal-reload-part" />
+      </div>
+    </div>
+  </div>
+  <!-- Modal de reload partie -->
+  <div class="modal fade" id="modal-reload-part" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Recharger une partie</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Es-tu sur de vouloir recharger la partie ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" id="button-reload-part">Continuer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/client-admin.js"></script>
+
+</html>
