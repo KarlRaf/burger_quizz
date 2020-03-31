@@ -40,6 +40,6 @@ require('./app/game')(io);
 // Récupération des méthodes utilitaires concernant le réseau
 const starter = require('./config/starter');
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 http.listen(port, () => starter.messagesToDisplayWhenServerStart(port));
